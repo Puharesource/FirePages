@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="theme-color" content="#39E600">
+
+  <title>Fire Pages</title>
+
+  <link rel="stylesheet" type="text/css" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" type="text/css" href="https://cdn.firebase.com/libs/firebaseui/2.2.1/firebaseui.css" />
+  <link rel="stylesheet" type="text/css" href="/assets/css/styles.css">
+
+  <!-- update the version number as needed -->
+  <script defer src="/__/firebase/4.0.0/firebase-app.js"></script>
+  <!-- include only the Firebase features as you need -->
+  <script defer src="/__/firebase/4.0.0/firebase-auth.js"></script>
+  <script defer src="/__/firebase/4.0.0/firebase-database.js"></script>
+  <script defer src="/__/firebase/4.0.0/firebase-storage.js"></script>
+  <!-- initialize the SDK after all desired features are loaded -->
+  <script defer src="/__/firebase/init.js"></script>
+
+  <script defer src="https://cdn.firebase.com/libs/firebaseui/2.2.1/firebaseui.js"></script>
+</head>
+<body class="firepages-body mdc-typography">
+  <aside id="dialog-login" class="mdc-dialog" role="alertdialog" aria-labelledby="my-mdc-dialog-label" aria-describedby="my-mdc-dialog-description">
+    <div class="mdc-dialog__surface">
+      <header class="mdc-dialog__header">
+        <h2 id="my-mdc-dialog-label" class="mdc-dialog__header__title">
+          Login
+        </h2>
+      </header>
+      <section id="my-mdc-dialog-description" class="mdc-dialog__body">
+        <div id="firebase-auth"></div>
+      </section>
+      <footer class="mdc-dialog__footer">
+        <button type="button" class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--cancel">Close</button>
+      </footer>
+    </div>
+    <div class="mdc-dialog__backdrop"></div>
+  </aside>
+
+  <header class="mdc-toolbar mdc-toolbar--fixed">
+    <div class="mdc-toolbar__row">
+      <section class="mdc-toolbar__section mdc-toolbar__section--align-start">
+        <button id="button-sidebar" class="material-icons mdc-toolbar__icon--menu">menu</button>
+        <img src="/assets/logo-white.svg" onerror="this.src='/assets/logo-white.png'" style="height: 34px; margin-top: 11px;">
+        <span class="mdc-toolbar__title catalog-title">Fire Pages</span>
+      </section>
+      <section class="mdc-toolbar__section mdc-toolbar__section--align-end" role="toolbar">
+        <a id="button-more" href="#" class="material-icons mdc-toolbar__icon" aria-label="More" alt="More">more_vert</a>
+        <div id="menu-offline" class="mdc-simple-menu" tabindex="-1">
+          <ul class="mdc-simple-menu__items mdc-list" role="menu" aria-hidden="true">
+            <li id="button-login" class="mdc-list-item" role="menuitem" tabindex="0">
+              Login
+            </li>
+          </ul>
+        </div>
+
+        <div id="menu-online" class="mdc-simple-menu" tabindex="-1">
+          <ul class="mdc-simple-menu__items mdc-list" role="menu" aria-hidden="true">
+            <li id="button-edit" class="mdc-list-item" role="menuitem" tabindex="0">
+              Edit
+            </li>
+            <li id="button-logout" class="mdc-list-item" role="menuitem" tabindex="0">
+              Logout
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </header>
+
+  <div class="firepages-content mdc-toolbar-fixed-adjust">
+    <aside class="mdc-persistent-drawer mdc-typography">
+      <nav id="main-drawer" class="mdc-persistent-drawer__drawer">
+        <nav id="links" class="mdc-persistent-drawer__content mdc-list">
+        </nav>
+      </nav>
+    </aside>
+    <main class="firepages-main" style="height: 100%; width: 100%; padding-right: 15px;">
+      <div id="page-content" style="height: 100%; width: 100%;">
+      </div>
+      <div id="page-edit" class="hidden" style="margin-top: 10px; width: 100%;">
+        <div class="mdc-textfield">
+          <input type="text" id="edit-title" class="mdc-textfield__input" placeholder="Title">
+        </div>
+        
+        <div class="mdc-textfield">
+          <input type="number" id="edit-order" class="mdc-textfield__input" placeholder="Order">
+        </div>
+
+        <button id="button-edit-save" class="mdc-button">
+          Save
+        </button>
+
+        <textarea id="edit-textarea" cols="30" rows="10"></textarea>
+        <input name="image" type="file" id="upload" class="hidden" onchange="">
+      </div>
+    </main>
+  </div>
+  <hr>
+  <footer class="footer">
+    <p>&copy; <a href="/home">Fire Pages</a> - <a href="mailto:example@example.com">example@example.com</a> - 123 Example Street - 1234 5678</p>
+  </footer>
+
+  <script defer src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+  <script defer src="/tinymce/tinymce.min.js"></script>
+  
+  <script defer src="/system.js"></script>
+  <script defer src="/bundle.js"></script>
+  <script defer src="/init.js"></script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+$mdc-theme-primary: #00A33C
+$mdc-theme-accent: #5E40FF
+
+@import "../node_modules/@material/theme/mdc-theme.scss"
+
+// Ensure layout covers the entire screen.
+html
+    height: 100%
+
+img
+    max-width: 100%
+
+// Place drawer and content side by side.
+.firepages-body
+    display: flex
+    flex-direction: column
+    padding: 0
+    margin: 0
+    box-sizing: border-box
+    min-height: 100%
+
+// Stack toolbar and main on top of each other.
+.firepages-content
+    display: flex
+    flex: 1 1 auto
+    height: 100%
+    box-sizing: border-box
+
+.firepages-main
+    padding-left: 16px
+
+.hidden
+    display: none !important
+
+.footer__content
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding-top: 32px;
+    padding-bottom: 24px;
+    height: 100%;
+
+.footer
+    text-align: center
+    height: 100px
